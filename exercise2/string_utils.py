@@ -1,60 +1,79 @@
-# Exercise 2: String Utilities
+# Exercise 3: Temperature Converter
+from typing import Union
+
+# Defining a Temperature type for cleaner type hints
+Temperature = Union[int, float]
 
 
-def reverse_string(s: str) -> str:
+def celsius_to_fahrenheit(celsius: Temperature) -> float:
     """
-    Return the input string in reverse order.
+    Convert temperature from Celsius to Fahrenheit.
+
+    Formula: F = C × 9/5 + 32
 
     Args:
-        s: Input string
+        celsius: Temperature in Celsius
 
     Returns:
-        The reversed string
+        Temperature in Fahrenheit (rounded to 2 decimal places)
     """
-    # TODO: Implement this function
-    pass
+    return round(celsius * 9/5 + 32, 2)
+  
 
 
-def count_vowels(s: str) -> int:
+def fahrenheit_to_celsius(fahrenheit: Temperature) -> float:
     """
-    Return the number of vowels (a, e, i, o, u) in the input string.
-    Case-insensitive: both uppercase and lowercase vowels should be counted.
+    Convert temperature from Fahrenheit to Celsius.
+
+    Formula: C = (F - 32) × 5/9
 
     Args:
-        s: Input string
+        fahrenheit: Temperature in Fahrenheit
 
     Returns:
-        The number of vowels in the string
+        Temperature in Celsius (rounded to 2 decimal places)
     """
-    # TODO: Implement this function
-    pass
+    return round((fahrenheit - 32) * 5/9, 2)
+    
 
 
-def is_palindrome(s: str) -> bool:
+def celsius_to_kelvin(celsius: Temperature) -> float:
     """
-    Check if the input string is a palindrome.
-    A palindrome reads the same backward as forward.
-    Spaces and case should be ignored.
+    Convert temperature from Celsius to Kelvin.
+
+    Formula: K = C + 273.15
 
     Args:
-        s: Input string
+        celsius: Temperature in Celsius
 
     Returns:
-        True if the string is a palindrome, False otherwise
+        Temperature in Kelvin (rounded to 2 decimal places)
     """
-    # TODO: Implement this function
-    pass
+    return round(celsius + 273.15, 2)
+    
 
 
-def capitalize_words(s: str) -> str:
+def kelvin_to_celsius(kelvin: Temperature) -> float:
     """
-    Capitalize the first letter of each word in the input string.
+    Convert temperature from Kelvin to Celsius.
+
+    Formula: C = K - 273.15
 
     Args:
-        s: Input string
+        kelvin: Temperature in Kelvin
 
     Returns:
-        The input string with the first letter of each word capitalized
+        Temperature in Celsius (rounded to 2 decimal places)
+
+    Raises:
+        ValueError: If kelvin is less than 0 (below absolute zero)
     """
-    # TODO: Implement this function
-    pass
+    if kelvin < 0:
+        raise ValueError("Temperature in Kelvin cannot be negative.")
+    return round(kelvin - 273.15, 2)
+
+    
+print(celsius_to_fahrenheit(0))  # 32.0
+print(fahrenheit_to_celsius(32))  # 0.0
+print(celsius_to_kelvin(0))  # 273.15
+print(kelvin_to_celsius(273.15))  # 0.0
