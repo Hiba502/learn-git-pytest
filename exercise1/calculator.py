@@ -30,7 +30,7 @@ def subtract(a: Number, b: Number) -> Number:
     Returns:
         The result of a - b
     """
-    return a-b
+    return b-a
 
 
 def multiply(a: Number, b: Number) -> Number:
